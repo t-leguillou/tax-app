@@ -7,12 +7,17 @@ const saveAndCompute = (req, res) => {
   if(!year || !superAnnuationRate) {
     res.status(500).json('Missing parameters')
   }
-  console.log('income',income);
+  let tax = {};
   if(income) {
-    return incomeHandler.handleIncome(income,superAnnuationRate,year);
+    tax = incomeHandler.handleIncome(income,superAnnuationRate,year)
   } else {
-    return incomeHandler.handleFullIncome(fullIncome,superAnnuationRate,year)
+    tax = incomeHandler.handleFullIncome(fullIncome,superAnnuationRate,year)
   }
+  console.log('tax computed',tax);
+  return incomeHandler.saveTaxes(tax)
+    .then(() => {
+      return res.status(201).end();
+    })
 }
 
-module.exports= { saveAndCompute}
+module.exports= { saveAndCompute }

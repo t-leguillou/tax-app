@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
-const TaxSchema = new mongoose.Schema({
-  tax: {
-    type: Object,
-    unique: true,
-    required: true
-  },
+const Tax = new mongoose.Schema({
+  superAnnuationRate: 'number',
+  superAnnuationAmount: 'number',
+  income: 'number',
+  taxPaid: 'number',
+  netIncome: 'number',
+  netSuper: 'number',
+  fullIncome: 'number',
 });
-const Tax = mongoose.model('Tax', TaxSchema);
-module.exports = Tax;
+module.exports = mongoose.model('Tax', Tax);
