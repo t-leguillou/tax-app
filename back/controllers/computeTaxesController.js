@@ -16,7 +16,7 @@ const saveAndCompute = (req, res) => {
   console.log('tax computed',tax);
   return incomeHandler.saveTaxes(tax)
     .then(() => {
-      return res.status(201).end();
+      return res.json(tax);
     })
 }
 

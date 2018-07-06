@@ -6,11 +6,11 @@ const handleIncome = (income, superAnnuation, year) => {
   const netIncome = income - taxPaid;
   const superAnnuationAmount = computeSuperAnnuationAmount(superAnnuation, income)
   const tax = {
-    income: incomne,
+    income: income,
     superAnnuationRate : superAnnuation,
     superAnnuationAmount: superAnnuationAmount,
     taxPaid: taxPaid,
-    fullIncome: income + superAnnuation,
+    fullIncome: income + superAnnuationAmount,
     netIncome: netIncome,
     netSuper: netIncome + superAnnuationAmount
   }
@@ -25,7 +25,7 @@ const handleFullIncome = (fullIncome, superAnnuation, year) => {
   const tax = {
     income : income,
     superAnnuationRate : superAnnuation,
-    superAnnuationAmount: fullIncome - superAnnuation,
+    superAnnuationAmount: fullIncome - superAnnuationAmount,
     taxPaid: computeTaxes(income, year),
     fullIncome: fullIncome,
     netIncome: income - taxPaid,

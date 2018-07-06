@@ -8,7 +8,7 @@ import {HttpService} from '../../service/http.service';
 })
 export class TaxComponent {
 
-  error = '';
+  error;
   tax: any = {};
 
   constructor(private httpService: HttpService) {
@@ -25,12 +25,12 @@ export class TaxComponent {
     this.httpService.calculateTax(payload)
       .subscribe(
         (taxResult) => {
-          console.log('cool');
+          this.tax = {...this.tax, ...taxResult};
         },
         (error) => {
           this.error = error;
         }
-      )
+      );
   }
 
 }
