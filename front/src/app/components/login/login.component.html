@@ -1,0 +1,20 @@
+<p></p>
+<p class="header-tax">You can fill your personal income</p>
+<div class="container" fxLayout="row">
+  <div fxFlexOffset="20px">
+
+    <mat-form-field>
+      <input matInput
+             name="password"
+             placeholder="Password"
+             [(ngModel)]="API_KEY"
+      />
+    </mat-form-field>
+    <button mat-stroked-button (click)="login()"> Login </button>
+    <div *ngIf="error">
+      <div class="error">
+        {{error}}
+      </div>
+    </div>
+  </div>
+</div>
