@@ -1,6 +1,5 @@
 const API_KEY = process.env.API_KEY;
 
-
 const login = (req,res) => {
   const { password } = req.body
   if (password === API_KEY) {

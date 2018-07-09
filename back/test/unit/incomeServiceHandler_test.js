@@ -26,11 +26,16 @@ describe('incomeServiceHandler', () => {
     const year = "2017";
     assert.throws(incomeHandler.computeTaxes,Error)
   });
-  it('should return the right amount of tax when > 18000 and year is 2016', () => {
+  it('should return the right amount of tax when < 18000 and year is 2016', () => {
     const year = "2016";
     const income = 100000;
     const taxPaid = incomeHandler.computeTaxes(income,year)
     assert.equal(24632,taxPaid);
   });
-
+  it('should return the right amount of tax when > 18000 and year is 2016', () => {
+    const year = "2016";
+    const income = 200000;
+    const taxPaid = incomeHandler.computeTaxes(income,year)
+    assert.equal(63232,taxPaid);
+  });
 })
