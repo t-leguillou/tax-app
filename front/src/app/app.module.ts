@@ -1,7 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {TaxComponent} from './components/tax/tax.components';
 import {RouterModule} from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -32,13 +32,14 @@ import {TaxHistoryComponent} from './components/history/history.components';
     BrowserAnimationsModule,
     FlexLayoutModule,
     RouterModule.forRoot([
-      { path: 'tax', component: TaxComponent, canActivate: [AuthGuard]},
-      { path: 'history', component: TaxHistoryComponent},
-      { path: 'login', component: LoginComponent },
-      { path: '**', redirectTo: '/login' }
+      {path: 'tax', component: TaxComponent, canActivate: [AuthGuard]},
+      {path: 'history', component: TaxHistoryComponent, canActivate: [AuthGuard]},
+      {path: 'login', component: LoginComponent},
+      {path: '**', redirectTo: '/login'}
     ])
   ],
   providers: [HttpService, AuthGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

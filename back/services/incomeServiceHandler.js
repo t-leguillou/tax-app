@@ -1,13 +1,13 @@
-const taxArray = require('../data_year/2016.json');
-const Tax = require('../model/taxModel');
+const taxArray = require('../data_year/2016.json')
+const Tax = require('../model/taxModel')
 
 const handleIncome = (income, superAnnuation, year) => {
   const taxPaid = computeTaxes(income, year)
-  const netIncome = income - taxPaid;
+  const netIncome = income - taxPaid
   const superAnnuationAmount = computeSuperAnnuationAmount(superAnnuation, income)
   const tax = {
     income: income,
-    superAnnuationRate : superAnnuation,
+    superAnnuationRate: superAnnuation,
     superAnnuationAmount: superAnnuationAmount,
     taxPaid: taxPaid,
     fullIncome: income + superAnnuationAmount,
@@ -18,20 +18,20 @@ const handleIncome = (income, superAnnuation, year) => {
 }
 
 const handleFullIncome = (fullIncome, superAnnuation, year) => {
-  let income = computeGrossBasedOnAnnuationAndTotal(superAnnuation,fullIncome)
+  let income = computeGrossBasedOnAnnuationAndTotal(superAnnuation, fullIncome)
   const taxPaid = computeTaxes(income, year)
-  const netIncome = income - taxPaid;
+  const netIncome = income - taxPaid
   const superAnnuationAmount = computeSuperAnnuationAmount(superAnnuation, income)
   const tax = {
-    income : income,
-    superAnnuationRate : superAnnuation,
+    income: income,
+    superAnnuationRate: superAnnuation,
     superAnnuationAmount: fullIncome - superAnnuationAmount,
     taxPaid: computeTaxes(income, year),
     fullIncome: fullIncome,
     netIncome: income - taxPaid,
     netSuper: netIncome + superAnnuationAmount
   }
-  console.log(tax);
+  console.log(tax)
   return tax
 }
 
@@ -65,8 +65,8 @@ const computeTaxes = (income, year) => {
 }
 
 const saveTaxes = (tax) => {
-  const saveInstance = new Tax(tax);
-  return saveInstance.save();
+  const saveInstance = new Tax(tax)
+  return saveInstance.save()
 }
 
 module.exports = {

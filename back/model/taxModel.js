@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
+
 const Tax = new mongoose.Schema({
   superAnnuationRate: 'number',
   superAnnuationAmount: 'number',
@@ -7,5 +8,6 @@ const Tax = new mongoose.Schema({
   netIncome: 'number',
   netSuper: 'number',
   fullIncome: 'number',
-});
-module.exports = mongoose.model('Tax', Tax);
+})
+
+module.exports = mongoose.model('Tax', Tax)

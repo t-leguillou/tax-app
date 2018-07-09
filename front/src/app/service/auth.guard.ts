@@ -5,7 +5,8 @@ import {HttpService} from './http.service';
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor( private httpService: HttpService, private myRoute: Router) {}
+  constructor(private httpService: HttpService, private myRoute: Router) {
+  }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.httpService.headers) {
