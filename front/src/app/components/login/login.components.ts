@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import {HttpService} from '../../service/http.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styles: []
+  styles: ['.container { justify-content: center;padding: 40px;} .title {text-align:center}']
 })
 export class LoginComponent {
 
@@ -17,8 +17,7 @@ export class LoginComponent {
 
   public login() {
     this.httpService.loginEmitter.subscribe(() => {
-      console.log('AUTHENTICATED');
-      this.router.navigate(['tax']);
+      this.router.navigate(['history']);
 
     });
     this.httpService.login(this.API_KEY);

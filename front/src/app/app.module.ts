@@ -6,18 +6,20 @@ import {TaxComponent} from './components/tax/tax.components';
 import {RouterModule} from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatInputModule, MatListModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatInputModule, MatListModule} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {HttpService} from './service/http.service';
 import {LoginComponent} from './components/login/login.components';
 import {AuthGuard} from './service/auth.guard';
+import {TaxHistoryComponent} from './components/history/history.components';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaxComponent,
-    LoginComponent
+    LoginComponent,
+    TaxHistoryComponent
   ],
   imports: [
     FormsModule,
@@ -25,11 +27,13 @@ import {AuthGuard} from './service/auth.guard';
     MatButtonModule,
     MatInputModule,
     MatListModule,
+    MatCardModule,
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     RouterModule.forRoot([
       { path: 'tax', component: TaxComponent, canActivate: [AuthGuard]},
+      { path: 'history', component: TaxHistoryComponent},
       { path: 'login', component: LoginComponent },
       { path: '**', redirectTo: '/login' }
     ])

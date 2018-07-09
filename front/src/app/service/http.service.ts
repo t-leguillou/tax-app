@@ -27,4 +27,9 @@ export class HttpService {
         console.error('WRONG LOGIN');
       });
   }
+
+  getTaxHistory() {
+    const url = 'http://localhost:5000/history';
+    return this.http.get(url,{headers : this.headers});
+  }
 }

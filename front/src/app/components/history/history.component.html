@@ -1,0 +1,13 @@
+<p></p>
+<p class="title">Tax History</p>
+<div class="container" fxLayout="row">
+  <mat-list>
+    <mat-list-item *ngFor="let taxEpisode of taxes; let i=index">
+        <h3 matLine> {{i}} </h3>
+        <p matLine> Income : {{taxEpisode.income}} </p>
+        <p matLine> Superannuation : {{taxEpisode.superAnnuationAmount}} </p>
+        <p matLine> Taxes paid : {{taxEpisode.taxPaid}} </p>
+        <p matLine> Net income : {{taxEpisode.netIncome}} </p>
+    </mat-list-item>
+  </mat-list>
+</div>

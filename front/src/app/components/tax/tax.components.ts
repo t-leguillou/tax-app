@@ -4,7 +4,7 @@ import {HttpService} from '../../service/http.service';
 @Component({
   selector: 'app-tax',
   templateUrl: './tax.component.html',
-  styles: ['.container { justify-content: center;padding: 40px;}']
+  styles: ['.container { justify-content: center;padding: 40px;} .title {text-align:center}']
 })
 export class TaxComponent {
 

@@ -1,4 +1,9 @@
-<div class="header">
+<div class="header title">
   <h1>Tax Calculator</h1>
+
+  <div>
+    <button mat-stroked-button [routerLink]="['/tax']" style="margin-right: 10px;"> Compute a new tax summary</button>
+    <button mat-stroked-button [routerLink]="['/history']"> History</button>
+  </div>
 </div>
 <router-outlet></router-outlet>

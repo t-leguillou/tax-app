@@ -8,6 +8,7 @@ function verifyToken(req, res, next) {
   if (req.headers['x-secret-token'] && req.headers['x-secret-token'] === API_KEY) {
     return next();
   }
+  console.log('UNAUTHORIZED');
   return unauthorizedResponse(res);
 }
 
