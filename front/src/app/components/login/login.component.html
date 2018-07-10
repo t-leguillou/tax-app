@@ -2,15 +2,16 @@
 <p class="title">Login</p>
 <div class="container" fxLayout="row">
   <div fxFlexOffset="20px">
-
-    <mat-form-field>
-      <input matInput
-             name="password"
-             placeholder="Password"
-             [(ngModel)]="API_KEY"
-      />
-    </mat-form-field>
-    <button mat-stroked-button (click)="login()"> Login </button>
+    <form (ngSubmit)="login()" class="example-form form" [formGroup]="form">
+      <mat-form-field>
+        <input matInput
+               name="password"
+               placeholder="Password"
+               formControlName="password"
+        />
+      </mat-form-field>
+      <button mat-stroked-button type="submit"> Login</button>
+    </form>
     <div *ngIf="error">
       <div class="error">
         {{error}}

@@ -36,8 +36,6 @@ export class HttpService {
         this.store.dispatch( new KeyActions.AddKey({API_KEY: API_KEY}));
         this.loginEmitter.emit();
 
-      }, error => {
-        console.error('WRONG LOGIN');
       });
   }
 
