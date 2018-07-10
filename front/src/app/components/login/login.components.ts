@@ -21,12 +21,13 @@ export class LoginComponent {
   }
 
   public login() {
-    this.httpService.loginEmitter.subscribe(() => {
+    this.httpService.loginEmitter
+      .subscribe(() => {
       this.router.navigate(['history']);
-    })
-      .catch(error => {
-        this.error = error;
-      });
+    }, error => {
+        this.error = error.error;
+      })
+      ;
     this.httpService.login(this.form.value.password);
   }
 

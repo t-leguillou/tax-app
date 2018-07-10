@@ -35,7 +35,8 @@ export class HttpService {
         const API_KEY = result['API_KEY'];
         this.store.dispatch( new KeyActions.AddKey({API_KEY: API_KEY}));
         this.loginEmitter.emit();
-
+      }, err => {
+        this.loginEmitter.error(err);
       });
   }
 
