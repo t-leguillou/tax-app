@@ -24,5 +24,4 @@ export class TaxHistoryComponent implements OnInit {
     });
   }
 
-
 }

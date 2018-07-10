@@ -1,6 +1,8 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
+import { StoreModule } from '@ngrx/store';
+
 import {AppComponent} from './app.component';
 import {TaxComponent} from './components/tax/tax.components';
 import {RouterModule} from '@angular/router';
@@ -13,6 +15,7 @@ import {HttpService} from './service/http.service';
 import {LoginComponent} from './components/login/login.components';
 import {AuthGuard} from './service/auth.guard';
 import {TaxHistoryComponent} from './components/history/history.components';
+import {reducers} from './app.states';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import {TaxHistoryComponent} from './components/history/history.components';
   ],
   imports: [
     FormsModule,
+    StoreModule.forRoot(reducers),
     ReactiveFormsModule,
     HttpClientModule,
     MatButtonModule,

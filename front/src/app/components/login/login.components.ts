@@ -9,7 +9,6 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent {
 
-  error;
   API_KEY;
 
   constructor(private httpService: HttpService, private router: Router) {
