@@ -6,9 +6,9 @@ import {TaxComponent} from './components/tax/tax.components';
 import {RouterModule} from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCardModule, MatInputModule, MatListModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatFormField, MatFormFieldModule, MatInputModule, MatListModule} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpService} from './service/http.service';
 import {LoginComponent} from './components/login/login.components';
 import {AuthGuard} from './service/auth.guard';
@@ -23,8 +23,10 @@ import {TaxHistoryComponent} from './components/history/history.components';
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatButtonModule,
+    MatFormFieldModule,
     MatInputModule,
     MatListModule,
     MatCardModule,
@@ -39,7 +41,8 @@ import {TaxHistoryComponent} from './components/history/history.components';
     ])
   ],
   providers: [HttpService, AuthGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [MatButtonModule, MatInputModule, MatListModule, MatFormFieldModule],
 })
 export class AppModule {
 }

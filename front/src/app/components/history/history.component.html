@@ -1,6 +1,6 @@
 <p class="title">Tax History</p>
 <div class="container" fxLayout="row">
-  <mat-list>
+  <mat-list *ngIf="!error">
     <mat-list-item *ngFor="let taxEpisode of taxes; let i=index">
       <h3 matLine> {{i}} </h3>
       <p matLine> Income : {{taxEpisode.income}} </p>
@@ -9,4 +9,7 @@
       <p matLine> Net income : {{taxEpisode.netIncome}} </p>
     </mat-list-item>
   </mat-list>
+  <p *ngIf="error">
+    An error occured, please refresh the page
+  </p>
 </div>

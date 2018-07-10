@@ -18,7 +18,6 @@ export class LoginComponent {
   public login() {
     this.httpService.loginEmitter.subscribe(() => {
       this.router.navigate(['history']);
-
     });
     this.httpService.login(this.API_KEY);
   }

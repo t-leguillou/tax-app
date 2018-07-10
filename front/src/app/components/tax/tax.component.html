@@ -7,43 +7,57 @@
         {{error}}
       </div>
     </div>
-    <form (ngSubmit)="calculateTax()" class="form">
-      <mat-form-field>
-        <input matInput
-               type="number"
-               name="income"
-               placeholder="Income"
-               [(ngModel)]="tax.income"
-        />
-      </mat-form-field>
+    <form (ngSubmit)="calculateTax()" class="example-form form" [formGroup]="form">
+      <p>
+        <mat-form-field>
+          <input matInput
+                 type="number"
+                 name="income"
+                 formControlName="income"
+                 placeholder="Income"
+          />
+        </mat-form-field>
+      </p>
       <div>
         Or
       </div>
-      <mat-form-field>
-        <input matInput
-               type="number"
-               name="fullIncome"
-               placeholder="Income + Super"
-               [(ngModel)]="tax.fullIncome"
-        />
-      </mat-form-field>
-
-      <mat-form-field>
-        <input matInput
-               type="number"
-               name="superAnnuationRate"
-               placeholder="Super annuation rate"
-               [(ngModel)]="tax.superAnnuationRate"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput
-               type="string"
-               name="year"
-               placeholder="Year"
-               [(ngModel)]="tax.year"
-        />
-      </mat-form-field>
+      <p>
+        <mat-form-field>
+          <input matInput
+                 type="number"
+                 name="fullIncome"
+                 formControlName="fullIncome"
+                 placeholder="Income + Super"
+          />
+        </mat-form-field>
+      </p>
+      <p></p>
+      <div>
+        <mat-form-field>
+          <input matInput
+                 type="number"
+                 name="superAnnuationRate"
+                 formControlName="superAnnuationRate"
+                 placeholder="Super annuation rate"
+          />
+          <mat-error *ngIf="superAnnuationRateControl.hasError('required') && (superAnnuationRateControl.dirty || superAnnuationRateControl.touched)">
+            Superannuation is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput
+                 type="string"
+                 name="year"
+                 formControlName="year"
+                 placeholder="Year"
+          />
+          <mat-error *ngIf="yearControl.hasError('required') && (yearControl.dirty || yearControl.touched)">
+            Superannuation is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
       <button type="submit" mat-button>Calculate tax</button>
     </form>
   </div>

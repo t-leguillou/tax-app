@@ -9,6 +9,7 @@ import {HttpService} from '../../service/http.service';
 export class TaxHistoryComponent implements OnInit {
 
   taxes: any;
+  error = false ;
 
   constructor(private httpService: HttpService) {
   }
@@ -16,6 +17,10 @@ export class TaxHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.httpService.getTaxHistory().subscribe((result) => {
       this.taxes = result;
+      this.error = false;
+    }, (error) => {
+      console.log(error);
+      this.error = true;
     });
   }
 
