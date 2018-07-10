@@ -38,4 +38,18 @@ describe('incomeServiceHandler', () => {
     const taxPaid = incomeHandler.computeTaxes(income, year)
     assert.equal(63232, taxPaid)
   })
+  it('should compute the right values when calling HandleFullIncome', () => {
+    const fullIncome = 109500;
+    const expect = {
+      income: 100000,
+      superAnnuationRate: 0.095,
+      superAnnuationAmount: 9500,
+      taxPaid: 24632,
+      fullIncome: 109500,
+      netIncome: 75368,
+      netSuper: 84868
+    }
+    const taxes = incomeHandler.handleFullIncome(fullIncome,0.095,'2016');
+    assert.deepEqual(expect,taxes)
+  });
 })

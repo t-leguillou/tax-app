@@ -25,7 +25,7 @@ const handleFullIncome = (fullIncome, superAnnuation, year) => {
   const tax = {
     income: income,
     superAnnuationRate: superAnnuation,
-    superAnnuationAmount: fullIncome - superAnnuationAmount,
+    superAnnuationAmount: superAnnuationAmount,
     taxPaid: computeTaxes(income, year),
     fullIncome: fullIncome,
     netIncome: income - taxPaid,
